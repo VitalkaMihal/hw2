@@ -1,4 +1,7 @@
 .select {
+    width: 180px;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .select:focus {

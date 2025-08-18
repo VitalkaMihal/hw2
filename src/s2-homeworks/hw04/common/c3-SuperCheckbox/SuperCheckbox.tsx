@@ -28,7 +28,7 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         // задачка на написание онченджа
-
+        if(onChangeChecked){onChangeChecked(e.currentTarget.checked)}
     }
 
     const finalInputClassName = s.checkbox
@@ -51,7 +51,7 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
                     {children}
                 </span>
             )}
-        </label> // благодаря label нажатие на спан передастся в инпут
+        </label > // благодаря label нажатие на спан передастся в инпут
     )
 }
 
