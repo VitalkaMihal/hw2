@@ -36,12 +36,24 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
+                setInfo('')
+
                 // дописать
 
             })
             .catch((e) => {
+                if(x === false){
+                    setCode('Ошибка 500!')
+                    setImage(error500)
+                }else if(typeof x === "undefined"){
+                    setCode('Ошибка 400!')
+                    setImage(error400)
+                } else if(x === null){
+            setCode('Error!')
+            setImage(errorUnknown)
+        }
+                setInfo('')
                 // дописать
-
             })
     }
 
@@ -55,6 +67,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
 
                     >
@@ -64,6 +77,8 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled={!!info}
+
                         // дописать
 
                     >
@@ -73,6 +88,8 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled={!!info}
+
                         // дописать
 
                     >
@@ -82,6 +99,8 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
+                        disabled={!!info}
+
                         // дописать
 
                     >
