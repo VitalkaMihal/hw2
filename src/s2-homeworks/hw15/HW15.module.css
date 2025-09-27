@@ -3,7 +3,6 @@
 }
 
 .developer {
-
 }
 
 .techHeader {
@@ -11,17 +10,30 @@
 }
 
 .developerHeader {
-
 }
 
 .row {
     display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid  #e5e5e5;
+    height: 45px;
+    padding: 10px;
+
 }
 
 .rowHeader {
     display: flex;
+    position: relative;
+    background-color: #e5e5e5;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 .loading {
-
+    position: absolute;
+    left: 30%;
+    top: 200%;
 }

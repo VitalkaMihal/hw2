@@ -16,13 +16,15 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
-    const lastPage = 10 // пишет студент // вычислить количество страниц
+    const lastPage = Math.floor(totalCount/itemsCountForPage) // пишет студент // вычислить количество страниц
 
     const onChangeCallback = (event: any, page: number) => {
+       onChange(page, itemsCountForPage)
         // пишет студент
     }
 
     const onChangeSelect = (event: any) => {
+        onChange(page, event)
         // пишет студент
     }
 
@@ -31,7 +33,14 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             <Pagination
                 id={id + '-pagination'}
                 sx={{
-                    // стили для Pagination // пишет студент
+                    '& .MuiPaginationItem-root.Mui-selected': {
+                        borderRadius: '5px',
+                        bgcolor: '#1976d2',
+                        color: 'white',
+                        '&:hover': {
+                            bgcolor: '#115293',
+                        },
+                    },
                 }}
                 page={page}
                 count={lastPage}
@@ -41,22 +50,22 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             />
 
             <span className={s.text1}>
-                показать
+                Показать
             </span>
 
             <SuperSelect
                 id={id + '-pagination-select'}
                 value={itemsCountForPage}
                 options={[
-                    // {id: 4, value: 4},
-                    // {id: 7, value: 7},
-                    // {id: 10, value: 10},
+                    {id: 4, value: "4"},
+                    {id: 7, value: "7"},
+                    {id: 10, value: "10"},
                 ]}
-                onChange={onChangeSelect}
+                onChangeOption={onChangeSelect}
             />
 
             <span className={s.text2}>
-                строк в таблице
+                строк{itemsCountForPage === 4 && "и"} в таблице
             </span>
         </div>
     )

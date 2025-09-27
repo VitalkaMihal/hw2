@@ -1,5 +1,5 @@
 .select {
-    width: 180px;
+    width: fit-content;
     font-weight: 400;
     font-size: 14px;
 }
